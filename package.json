@@ -1,0 +1,44 @@
+{
+    "name": "jbateson-scripts",
+    "displayName": "jbateson-scripts",
+    "description": "Collection of utils jbateson finds useful",
+    "version": "1.0.0",
+    "publisher": "jbateson",
+    "engines": {
+        "vscode": "^1.19.0"
+    },
+    "categories": ["Other"],
+    "activationEvents": ["onCommand:extension.jbatesonscript.copyPythonImport"],
+    "main": "./extension",
+    "contributes": {
+        "commands": [
+            {
+                "command": "extension.jbatesonscript.copyPythonImport",
+                "title": "Copy Python import to clipboard"
+            }
+        ],
+        "menus": {
+            "editor/context": [
+                {
+                    "when": "resourceLangId == python",
+                    "command": "extension.jbatesonscript.copyPythonImport"
+                }
+            ]
+        }
+    },
+    "scripts": {
+        "postinstall": "node ./node_modules/vscode/bin/install",
+        "test": "node ./node_modules/vscode/bin/test"
+    },
+    "devDependencies": {
+        "typescript": "^2.0.3",
+        "vscode": "^1.0.0",
+        "mocha": "^2.3.3",
+        "eslint": "^3.6.0",
+        "@types/node": "^6.0.40",
+        "@types/mocha": "^2.2.32"
+    },
+    "dependencies": {
+        "copy-paste": "^1.3.0"
+    }
+}
